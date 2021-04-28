@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keyboard>
+    <!--
+        Made by Maxim Kouprianov <me@kc.vc>
+        Please check http://kc.vc/projects/matchbox-keyboard.html
+    -->
+    <layout id="en">
+        <row>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="1" />
+                <shifted display="!" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="2" />
+                <shifted display="&quot;" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="3" />
+                <shifted display="#" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="4" />
+                <shifted display="$" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="5" />
+                <shifted display="%" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="6" />
+                <shifted display="^" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="7" />
+                <shifted display="&amp;" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="8" />
+                <shifted display="*" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="9" />
+                <shifted display="(" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="0" />
+                <shifted display=")" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="-" />
+                <shifted display="_" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="=" />
+                <shifted display="+" />
+            </key>
+            <key width="50" extended="false">
+                <default display="image:key-backspace.png" action="backspace" />
+            </key>
+        </row>
+        <row>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="q" />
+                <shifted display="Q" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="w" />
+                <shifted display="W" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="e" />
+                <shifted display="E" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="r" />
+                <shifted display="R" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="t" />
+                <shifted display="T" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="y" />
+                <shifted display="Y" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="u" />
+                <shifted display="U" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="i" />
+                <shifted display="I" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="o" />
+                <shifted display="O" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="p" />
+                <shifted display="P" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="{" />
+                <shifted display="[" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="}" />
+                <shifted display="]" />
+            </key>
+            <key width="40" extended="false">
+                <default display="\" />
+                <shifted display="|" />
+            </key>
+        </row>
+        <row>
+            
+            <key width="25" extended="false" obey-caps="true">
+                <default display="a" />
+                <shifted display="A" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="s" />
+                <shifted display="S" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="d" />
+                <shifted display="D" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="f" />
+                <shifted display="F" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="g" />
+                <shifted display="G" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="h" />
+                <shifted display="H" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="j" />
+                <shifted display="J" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="k" />
+                <shifted display="K" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="l" />
+                <shifted display="L" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display=";" />
+                <shifted display=":" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="'" />
+                <shifted display="&quot;" />
+            </key>
+            <key width="60" extended="false">
+                <default display="image:key-enter.png" action="xkeysym:KP_Enter" />
+            </key>
+        </row>
+        <row>
+            <key width="40">
+                <default display="Shift" action="modifier:shift" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="z" />
+                <shifted display="Z" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="x" />
+                <shifted display="X" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="c" />
+                <shifted display="C" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="v" />
+                <shifted display="V" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="b" />
+                <shifted display="B" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="n" />
+                <shifted display="N" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="m" />
+                <shifted display="M" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="," />
+                <shifted display="&lt;" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="." />
+                <shifted display="&gt;" />
+            </key>
+            <key width="25" extended="false">
+                <default display="/" />
+                <shifted display="?" />
+            </key>
+            <key width="35">
+                <default display="Caps" action="modifier:caps" />
+            </key>
+        </row>
+        <row>
+            <key width="40" extended="false">
+                <default display="TH" action="modifier:layout" />
+            </key>
+            <key width="280" extended="false">
+                <default display=" " action="space" />
+            </key>
+            <key width="50" extended="false">
+                <default display="image:key-min.png" action="modifier:min" />
+            </key>
+        </row>
+    </layout>
+    <layout id="th">
+        <row>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ๅ" />
+                <shifted display="+" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="/" />
+                <shifted display="๑" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="-" />
+                <shifted display="๒" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ภ" />
+                <shifted display="๓" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ถ" />
+                <shifted display="๔" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ุ" />
+                <shifted display="ู" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ึ" />
+                <shifted display="฿" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ค" />
+                <shifted display="๕" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ต" />
+                <shifted display="๖" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="จ" />
+                <shifted display="๗" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ข" />
+                <shifted display="๘" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ช" />
+                <shifted display="๙" />
+            </key>
+            <key width="50" extended="false">
+                <default display="image:key-backspace.png" action="backspace" />
+            </key>
+        </row>
+        <row>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ๆ" />
+                <shifted display="๐" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ไ" />
+                <shifted display="&quot;" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ำ" />
+                <shifted display="ฎ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="พ" />
+                <shifted display="ฑ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ะ" />
+                <shifted display="ธ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ั" />
+                <shifted display="ํ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ี" />
+                <shifted display="๊" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ร" />
+                <shifted display="ณ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="น" />
+                <shifted display="ฯ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ย" />
+                <shifted display="ญ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="บ" />
+                <shifted display="ฐ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ล" />
+                <shifted display="," />
+            </key>
+            <key width="40" extended="false">
+                <default display="ฃ" />
+                <shifted display="ฅ" />
+            </key>
+        </row>
+        <row>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ฟ" />
+                <shifted display="ฤ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ห" />
+                <shifted display="ฆ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ก" />
+                <shifted display="ฏ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ด" />
+                <shifted display="โ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="เ" />
+                <shifted display="ฌ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="้" />
+                <shifted display="็" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="่" />
+                <shifted display="๋" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="า" />
+                <shifted display="ษ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ส" />
+                <shifted display="ศ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ว" />
+                <shifted display="ซ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ง" />
+                <shifted display="." />
+            </key>
+            <key width="60" extended="false">
+                <default display="image:key-enter.png" action="xkeysym:KP_Enter" />
+            </key>
+        </row>
+        <row>
+            <key width="40">
+                <default display="Shift" action="modifier:shift" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ผ" />
+                <shifted display="(" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ป" />
+                <shifted display=")" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="แ" />
+                <shifted display="ฉ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="อ" />
+                <shifted display="ฮ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ิ" />
+                <shifted display="ฺ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ื" />
+                <shifted display="์" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ท" />
+                <shifted display="?" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ม" />
+                <shifted display="ฒ" />
+            </key>
+            <key width="25" extended="false" obey-caps="true">
+                <default display="ใ" />
+                <shifted display="ฬ" />
+            </key>
+            <key width="25" extended="false">
+                <default display="ฝ" />
+                <shifted display="ฦ" />
+            </key>
+            <key width="35">
+                <default display="Caps" action="modifier:caps" />
+            </key>
+        </row>
+        <row>
+            <key width="40" extended="false">
+                <default display="EN" action="modifier:layout" />
+            </key>
+            <key width="280" extended="false">
+                <default display=" " action="space" />
+            </key>
+            <key width="50" extended="false">
+                <default display="image:key-min.png" action="modifier:min" />
+            </key>
+        </row>
+    </layout>
+</keyboard>
