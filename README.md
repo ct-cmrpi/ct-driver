@@ -1,6 +1,11 @@
 ## Driver for the ct-cmrpi 
+Modified drivers and device tree sources on the open source Raspberry Pi Compute Module 3+
+based on Raspberry Pi OS and kernel 5.10.33 
 
-Current release is based on Raspbian Buster and kernel 5.10.33
+```
+uname -a
+Linux raspberrypi 5.10.33-v7+ #1415 SMP Fri Apr 30 15:49:00 BST 2021 armv7l GNU/Linux
+```
 
 ## First Install 
 we used [rpi-source](https://github.com/RPi-Distro/rpi-source) to obtain kernel source 
@@ -15,7 +20,7 @@ rpi-source
 sudo reboot
 ```
  
-## MIPI Display, SDIO WIFI, CTP Touch
+## MIPI DSI Display, SDIO WIFI, CTP Touch
 LCD display it has 7.0Inch 800X1280 IPS MIPI AML070WXBI4002
 WIFI module it has RTL8723BS SDIO
 
@@ -97,7 +102,7 @@ dtoverlay=ct_touch
 ```
 
 ## GPU, drivers, and screen setup
-a custom DSI panel that starts in 800x1280 mode
+custom DSI panel that starts in 800x1280 mode
 rotated display to landscape (1280x800) with 
 
 ```
