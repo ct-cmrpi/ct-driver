@@ -3,7 +3,7 @@
 Current release is based on Raspbian Buster and kernel 5.10.33
 
 ## First Install 
-we used rpi-source to obtain kernel source [here](https://github.com/RPi-Distro/rpi-source)
+we used [rpi-source](https://github.com/RPi-Distro/rpi-source) to obtain kernel source 
 ```
 sudo apt-get update
 sudo apt install raspberrypi-kernel-headers
