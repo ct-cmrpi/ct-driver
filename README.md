@@ -20,7 +20,7 @@ rpi-source
 sudo reboot
 ```
  
-## MIPI DSI Display, SDIO WIFI, CTP Touch
+## MIPI DSI display, SDIO WiFi, Touchscreen panel
 LCD display it has 7.0Inch 800X1280 IPS MIPI AML070WXBI4002
 WIFI module it has RTL8723BS SDIO
 
