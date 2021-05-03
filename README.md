@@ -21,7 +21,7 @@ sudo reboot
 ```
  
 ## MIPI DSI display, SDIO WiFi, Touchscreen panel
-LCD display it has 7.0Inch 800X1280 IPS MIPI AML070WXBI4002
+LCD display it has 7.0 Inch 800X1280 IPS MIPI AML070WXBI4002 (display driver reference [here](https://github.com/cutiepi-io/cutiepi-drivers/tree/master/Display))
 WIFI module it has RTL8723BS SDIO
 
 First copy file to kernel source directory
