@@ -133,3 +133,10 @@ boot display rotation `sudo nano /boot/cmdline.txt`
 video=DSI-1:800x1280@60,rotate=90
 ```
 
+## Backup custom OS
+wget  https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh
+chmod +x pishrink.sh
+sudo mv pishrink.sh /usr/local/bin
+
+sudo dd bs=1M if=/dev/mmcblk0 of=/media/pi/Backup/raspi-backup.img status=progress
+sudo pishrink.sh /media/pi/Backup/raspi-backup.img /media/pi/Backup/ct-cmrpi-os/raspi5.10_cmrpi_2105031901.img
