@@ -134,6 +134,7 @@ video=DSI-1:800x1280@60,rotate=90
 ```
 
 ## Backup custom OS
+Example : 
 ```
 wget  https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh
 chmod +x pishrink.sh
