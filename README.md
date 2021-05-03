@@ -21,7 +21,9 @@ WIFI module it has RTL8723BS SDIO
 
 First copy file to kernel source directory
 ```
-sudo cp ct-driver/display/drivers/gpu/drm/panel/panel-jd9366.c ~/linux/drivers/gpu/drm/panel/ && sudo cp ct-driver/display/drivers/gpu/drm/panel/Kconfig ~/linux/drivers/gpu/drm/panel/ && sudo cp ct-driver/display/drivers/gpu/drm/panel/Makefile ~/linux/drivers/gpu/drm/panel/
+sudo cp ct-driver/display/drivers/gpu/drm/panel/panel-jd9366.c ~/linux/drivers/gpu/drm/panel/
+sudo cp ct-driver/display/drivers/gpu/drm/panel/Kconfig ~/linux/drivers/gpu/drm/panel/
+sudo cp ct-driver/display/drivers/gpu/drm/panel/Makefile ~/linux/drivers/gpu/drm/panel/
 ```
 
 Config driver and build the modules
@@ -59,7 +61,8 @@ sudo modprobe r8723bs
 compiled device tree overlay and copied to `/boot/overlays` 
 
 ```
-cd /home/pi/ct-driver/display && dtc -I dts -O dtb -o panel-jd9366.dtbo panel-jd9366.dts && sudo cp panel-jd9366.dtbo /boot/overlays/ && cd /home/pi/ct-driver/touch && sudo dtc -I dts -O dtb -o ct_touch.dtbo ct_touch.dts && sudo cp ct_touch.dtbo /boot/overlays/
+cd /home/pi/ct-driver/display && dtc -I dts -O dtb -o panel-jd9366.dtbo panel-jd9366.dts && sudo cp panel-jd9366.dtbo /boot/overlays/ 
+cd /home/pi/ct-driver/touch && sudo dtc -I dts -O dtb -o ct_touch.dtbo ct_touch.dts && sudo cp ct_touch.dtbo /boot/overlays/
 ```
 and configure in `sudo nano /boot/config.txt`
 
@@ -93,7 +96,15 @@ dtparam=i2c0=on
 dtoverlay=ct_touch
 ```
 
-## Setting touch screen rotation
+## GPU, drivers, and screen setup
+a custom DSI panel that starts in 800x1280 mode
+rotated display to landscape (1280x800) with 
+
+```
+xrandr --output DSI-1 --rotate left
+```
+
+touchscreen rotation
 ```
 sudo nano /usr/share/X11/xorg.conf.d/40-libinput.conf
 ```
@@ -108,4 +119,8 @@ Section "InputClass"
 EndSection
 ```
 
+boot display rotation `sudo nano /boot/cmdline.txt`
+```
+video=DSI-1:800x1280@60,rotate=90
+```
 
