@@ -31,7 +31,7 @@ sudo cp ct-driver/display/drivers/gpu/drm/panel/Kconfig ~/linux/drivers/gpu/drm/
 sudo cp ct-driver/display/drivers/gpu/drm/panel/Makefile ~/linux/drivers/gpu/drm/panel/
 ```
 
-# Run `make menuconfig` to configure and build the modules
+Run `make menuconfig` to configure and build the modules
 
 ```
 cd /home/pi/linux
