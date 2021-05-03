@@ -1,0 +1,44 @@
+#Install QT
+sudo apt-get --no-install-recommends install libqt*5-dev qt*5-dev
+sudo apt-get install qml-module-qtquick-*
+
+
+
+#Install keyboard
+sudo cp /home/pi/ct-driver/keyboard/Executable/matchbox-keyboard /usr/local/bin
+sudo cp -r /home/pi/ct-driver/keyboard/Configuration/matchbox-keyboard /usr/local/share/
+
+------------------------------------------------------------------
+
+#Auto update 
+git clone https://B_META@bitbucket.org/cloudtime/ct-100-deploy.git
+
+cd ct-100-deploy/
+sh ./deployautoupdate.sh
+cat deployautoupdate.sh
+
+cd autoupdate/
+./ctupdater
+
+#Stop , disable cloudtime auto update
+sudo systemctl disable fingerscan.service    
+sudo systemctl stop fingerscan.service
+
+#Start , enable cloudtime auto update
+sudo systemctl enable fingerscan.service    
+sudo systemctl start fingerscan.service
+
+#Backup cloudtime to .img example 
+#sudo dd bs=1M if=/dev/mmcblk0 of=/media/pi/MTB/CT200_2021041609.img status=progress
+#sudo dd bs=1M if=/dev/mmcblk0 of=/media/pi/BOOT/raspbian_CT200_20210319.img status=progress
+
+wget  https://raw.githubusercontent.com/Drewsif/PiShrink/master/pishrink.sh
+chmod +x pishrink.sh
+sudo mv pishrink.sh /usr/local/bin
+
+sudo dd bs=1M if=/dev/mmcblk0 of=/media/pi/Backup/cloudtime-OS/raspi-jd9366_5.10.33-v7+.img status=progress
+sudo pishrink.sh /media/pi/BOOT/raspi-jd9366_5.10.33-v7+.img /media/pi/Backup/cloudtime-OS/raspi-jd9366_5.10.33-v7+_fsp.img
+
+
+
+

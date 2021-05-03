@@ -1,0 +1,220 @@
+======== cloudtime finger driver setup working on linux kernel 4.19.75-v7+ ==========
+==== NOTE : 5.10.0 [559b360dd9d74a6145e7b84e897e15f711557d0c] 
+
+uname -a 
+#Linux raspberrypi 4.19.75-v7+ #1270 SMP Tue Sep 24 18:45:11 BST 2019 armv7l GNU/Linux
+
+sudo nano /etc/apt/sources.list
+#	change http://raspbian.raspberrypi.org/raspbian/ to http://mirror.kku.ac.th/raspbian/raspbian/
+
+#sudo raspi-config
+
+sudo apt-get update
+sudo apt-get install git bc bison flex libssl-dev
+sudo apt-get install libncurses5-dev
+sudo wget https://raw.githubusercontent.com/notro/rpi-source/master/rpi-source -O /usr/local/bin/rpi-source && sudo chmod +x /usr/local/bin/rpi-source && /usr/local/bin/rpi-source -q --tag-update
+
+rpi-source  #N
+
+#git clone https://github.com/cutiepi-io/cutiepi-drivers.git
+#sudo cp cutiepi-drivers/Display/drivers/gpu/drm/panel/panel-jd9366.c ~/linux/drivers/gpu/drm/panel/
+#sudo cp cutiepi-drivers/Display/drivers/gpu/drm/panel/Kconfig ~/linux/drivers/gpu/drm/panel/
+#sudo cp cutiepi-drivers/Display/drivers/gpu/drm/panel/Makefile ~/linux/drivers/gpu/drm/panel/
+
+git clone https://B_META@bitbucket.org/B_META/ct-driver.git
+sudo cp ct-driver/Display/drivers/gpu/drm/panel/panel-jd9366.c ~/linux/drivers/gpu/drm/panel/
+sudo cp ct-driver/Display/drivers/gpu/drm/panel/Kconfig ~/linux/drivers/gpu/drm/panel/
+sudo cp ct-driver/Display/drivers/gpu/drm/panel/Makefile ~/linux/drivers/gpu/drm/panel/
+
+git clone https://github.com/ct-cmrpi/ct-driver.git
+sudo cp ct-driver/display/drivers/gpu/drm/panel/panel-jd9366.c ~/linux/drivers/gpu/drm/panel/ && sudo cp ct-driver/display/drivers/gpu/drm/panel/Kconfig ~/linux/drivers/gpu/drm/panel/ && sudo cp ct-driver/display/drivers/gpu/drm/panel/Makefile ~/linux/drivers/gpu/drm/panel/
+
+sudo cp ct-driver/Display/drivers/gpu/drm/panel/panel-jd9366.c ~/linux/drivers/gpu/drm/panel/ && sudo cp ct-driver/Display/drivers/gpu/drm/panel/Kconfig ~/linux/drivers/gpu/drm/panel/ && sudo cp ct-driver/Display/drivers/gpu/drm/panel/Makefile ~/linux/drivers/gpu/drm/panel/
+
+
+sudo cp ct-driver-update/ct-driver/display/drivers/gpu/drm/panel/panel-jd9366.c ~/linux/drivers/gpu/drm/panel/
+
+cd linux
+make menuconfig
+
+
+#--------- Config JD9366 Display ------------
+#Device Drivers  --->
+#	Graphics support  --->
+#		Display Panels  --->  
+#			<M> JD9366 panel
+#			
+#---------- Config RTL8723bs wifi ------------
+#Device Drivers  --->
+#	Staging drivers  --->
+#		Realtek RTL8723BS SDIO Wireless LAN NIC driver		
+
+
+zcat /proc/config.gz > .config.running
+
+scripts/diffconfig .config.running .config
+make prepare
+
+
+make SUBDIRS=drivers/gpu/drm/panel modules
+make SUBDIRS=drivers/staging/rtl8723bs modules
+sudo make SUBDIRS=drivers/gpu/drm/panel modules_install
+sudo make SUBDIRS=drivers/staging/rtl8723bs modules_install
+sudo depmod	
+		
+sudo modprobe panel-jd9366
+sudo modprobe panel-jdi-lt070me05000
+sudo modprobe r8723bs
+dmesg | tail
+lsmod
+
+cd /home/pi/ct-driver/Display
+sudo dtc -@ -I dts -O dtb -o panel-jd9366.dtbo panel-jd9366.dts
+sudo cp panel-jd9366.dtbo /boot/overlays/
+
+sudo dtc -@ -I dts -O dtb -o vc4-kms-dsi-lt070me05000.dtbo vc4-kms-dsi-lt070me05000-overlay.dts
+sudo cp vc4-kms-dsi-lt070me05000.dtbo /boot/overlays/
+
+cd /home/pi/ct-driver/Touch
+dtc -I dts -O dtb -o ct_touch.dtbo ct_touch.dts
+sudo cp ct_touch.dtbo /boot/overlays/
+
+#===================== Script =======================
+
+scripts/diffconfig .config.running .config && make prepare && make SUBDIRS=drivers/gpu/drm/panel modules && make SUBDIRS=drivers/staging/rtl8723bs modules && sudo make SUBDIRS=drivers/gpu/drm/panel modules_install && sudo make SUBDIRS=drivers/staging/rtl8723bs modules_install && sudo depmod && sudo modprobe panel-jd9366 && sudo modprobe r8723bs && dmesg | tail && cd /home/pi/ct-driver/Display && sudo dtc -@ -I dts -O dtb -o panel-jd9366.dtbo panel-jd9366.dts && sudo cp panel-jd9366.dtbo /boot/overlays/ && cd /home/pi/ct-driver/Touch && dtc -I dts -O dtb -o ct_touch.dtbo ct_touch.dts && sudo cp ct_touch.dtbo /boot/overlays/
+ 
+sudo nano /boot/config.txt
+
+#---------------------------------------------
+#=========== config.txt file config ========== 
+
+#dtoverlay=vc4-fkms-v3d
+
+#CT-100 board gpio config
+#gpio=24=op,dh
+#gpio=25=op,dh
+#gpio=27=op,dh
+#gpio=21=op,dh
+#gpio=19=op,dh
+#gpio=40=op,dh
+#gpio=41=op,dl
+#dtoverlay=pwm-2chan,pin=18,func=2,pin2=13,func2=4
+
+
+#==================== CT-200 Rev3.2 gpio config deteil===================
+#	6=RST_LCD, 7=DCDC_EN, 8=PWR_USB2, 9=PWR_USB1, 10=FAN, 11=Relay, 12=LCD_EN, 
+#	13=BT_dis, 22=PWR_SFM, 23=PWR_EC25, 24=MUTE_AMP, 25=WL_DS, 26=WL_H_WAKE, 
+#	27=RST_EC25,30=BT_wake, 31=BT_H_wake, 42=RST_TP, 43=TP_INT_B
+gpio=7=op,dh 
+gpio=8=op,dh
+gpio=9=op,dh
+gpio=10=op,dl
+gpio=22=op,dl
+gpio=23=op,dl
+gpio=24=op,dl
+gpio=25=op,dh
+#gpio=26=op,dl
+#gpio=27=op,dl
+gpio=30=op,dl
+gpio=31=op,dl
+
+#	Set the audio lines on GPIO40 and GPIO41 pins
+dtoverlay=pwm-2chan,pin=40,func=4,pin2=41,func2=4
+
+#	MIPI DSI Display
+dtoverlay=vc4-kms-v3d
+dtoverlay=panel-jd9366
+ignore_lcd=1
+gpio=12=op,dh
+#max_framebuffers=1
+#lcd_rotate=1
+
+#	WiFi
+dtoverlay=sdio,sdio_overclock=25,gpios_34_39,poll_once=on
+
+#	Touch
+dtoverlay=i2c0-bcm2708,sda0_pin=0,scl0_pin=1
+
+# i2c0 pins 0 and 1 enable
+#dtoverlay=i2c0-bcm2708,pins_0_1
+#dtparam=i2c0=on
+dtoverlay=ct_touch
+
+# Enable I2C1
+#dtparam=i2c1=on
+#dtparam=i2c_arm=on
+
+# i2s enable on 18-21
+# dtparam=i2s=on
+
+# Configpin UART
+dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
+
+#core_freq=250
+
+#start_x=1
+gpu_mem=256
+#enable_uart=1
+#========================================= 
+------------------------------------------
+
+
+#set touch rotation
+sudo nano /usr/share/X11/xorg.conf.d/40-libinput.conf
+add Option
+
+Section "InputClass"
+        Identifier "libinput touchscreen catchall"
+        MatchIsTouchscreen "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "TransformationMatrix" "0 -1 1 1 0 0 0 0 1"
+EndSection
+
+--------------------------------
+
+sudo nano /boot/cmdline.txt
+#set boot rotation cmdline : video=DSI-1:800x1280@60,rotate=90
+
+#Quectel EC25 ssh 
+#https://docs.sixfab.com/page/setting-up-the-ppp-connection-for-sixfab-shield-hat
+
+
+
+#hide menu taskbar and run .gif logo
+
+sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+	#@lxpanel --profile LXDE-pi
+	#point-rpi
+	
+	@sh /home/pi/loadstart.sh
+	@chromium-browser --kiosk file:/home/pi/ct-driver/loading_gif/gif_player.html
+	
+sudo reboot
+
+
+---------------------------------------------
+#hide mouse curser
+sudo nano /etc/lightdm/lightdm.conf
+	[Seat:*]
+	#type=local
+	#pam-service=lightdm
+	#pam-autologin-service=lightdm-autologin
+	#pam-greeter-service=lightdm-greeter
+	#xserver-backend=
+	xserver-command= X -nocursor
+----------------------------------------------
+
+
+cd /usr/src
+git clone --depth 1 https://github.com/raspberrypi/linux.git
+ln -s linux linux-4.1.18-v7+
+ln -s /usr/src/linux /lib/modules/4.1.18-v7+/build
+cd linux
+wget https://raw.githubusercontent.com/raspberrypi/firmware/master/extra/Module.symvers
+make menuconfig
+make prepare
+make modules_prepare
+
+
+
