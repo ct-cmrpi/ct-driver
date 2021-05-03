@@ -3,7 +3,7 @@ Modified drivers and device tree sources on the open source Raspberry Pi Compute
 based on Raspberry Pi OS and kernel 5.10.33 
 
 ```
-uname -a
+$ uname -a
 Linux raspberrypi 5.10.33-v7+ #1415 SMP Fri Apr 30 15:49:00 BST 2021 armv7l GNU/Linux
 ```
 
@@ -31,27 +31,31 @@ sudo cp ct-driver/display/drivers/gpu/drm/panel/Kconfig ~/linux/drivers/gpu/drm/
 sudo cp ct-driver/display/drivers/gpu/drm/panel/Makefile ~/linux/drivers/gpu/drm/panel/
 ```
 
-Config driver and build the modules
+# Run `make menuconfig` to configure and build the modules
 
 ```
-cd linux
+cd /home/pi/linux
 make menuconfig
+```
 
-#--------- Config JD9366 Display ------------
+Kernel configuration as follows
+```
+#----------- Display ------------
 #Device Drivers  --->
 #	Graphics support  --->
 #		Display Panels  --->  
 #			<M> JD9366 panel
 #			
-#---------- Config RTL8723bs wifi ------------
+#---------- WiFi module ----------
 #Device Drivers  --->
 #	Staging drivers  --->
 #		Realtek RTL8723BS SDIO Wireless LAN NIC driver	
-
+```
+Build, Install and Load the modules
+```
 zcat /proc/config.gz > .config.running
 scripts/diffconfig .config.running .config
 make prepare
-
 
 make -C /lib/modules/$(uname -r)/build M=drivers/gpu/drm/panel/ modules
 make -C /lib/modules/$(uname -r)/build M=drivers/staging/rtl8723bs/ modules
@@ -69,7 +73,7 @@ compiled device tree overlay and copied to `/boot/overlays`
 cd /home/pi/ct-driver/display && dtc -I dts -O dtb -o panel-jd9366.dtbo panel-jd9366.dts && sudo cp panel-jd9366.dtbo /boot/overlays/ 
 cd /home/pi/ct-driver/touch && sudo dtc -I dts -O dtb -o ct_touch.dtbo ct_touch.dts && sudo cp ct_touch.dtbo /boot/overlays/
 ```
-and configure in `sudo nano /boot/config.txt`
+and configure boot file in `sudo nano /boot/config.txt` as follows
 
 ```
 #==================== CT-200 Rev3.2 gpio config deteil===================
