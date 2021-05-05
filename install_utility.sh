@@ -9,4 +9,5 @@ sudo cp /home/pi/ct-driver/utility/keyboard/Executable/matchbox-keyboard /usr/lo
 sudo chmod +x /usr/local/bin/matchbox-keyboard &&
 sudo cp -r /home/pi/ct-driver/utility/keyboard/Configuration/matchbox-keyboard /usr/local/share &&
 sudo cp /home/pi/ct-driver/utility/fonts/browalia.ttc /usr/share/fonts/truetype/ &&
-sudo cp /home/pi/ct-driver/utility/fonts/DB\ Helvethaica\ X\ v3.2.ttf /usr/share/fonts/truetype/
+sudo cp /home/pi/ct-driver/utility/fonts/DB\ Helvethaica\ X\ v3.2.ttf /usr/share/fonts/truetype/ &&
+sudo reboot now
