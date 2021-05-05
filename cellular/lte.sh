@@ -1,1 +1,1 @@
-sudo /home/pi/umtskeeper/umtskeeper --sakisoperators "OTHER='CUSTOM_TTY' CUSTOM_TTY='/dev/ttyUSB5' APN='CUSTOM_APN' CUSTOM_APN='internet' APN_USER='true' APN_PASS='true'" --sakisswitches " --sudo --console" --devicename 'Quectel' --log --nat 'no'
+sudo /home/pi/4Gmodem/umtskeeper --sakisoperators "OTHER='CUSTOM_TTY' CUSTOM_TTY='/dev/ttyUSB5' APN='CUSTOM_APN' CUSTOM_APN='internet' APN_USER='true' APN_PASS='true'" --sakisswitches " --sudo --console" --devicename 'Quectel' --log --nat 'no'
