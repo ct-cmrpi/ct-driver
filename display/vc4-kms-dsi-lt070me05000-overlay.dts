@@ -1,20 +1,11 @@
-//*
- * Device Tree overlay to connect a JDI LT070ME05000 DSI panel to DSI1.
- * This uses 4 DSI data lanes, so can only be used with a Compute Module.
- *
- * Credit to forum user gizmomouse on
- * https://www.raspberrypi.org/forums/viewtopic.php?f=98&t=253912 and
- * Andrey Vostrukhin of Harlab for the overlay.
- *
- * Refer to https://github.com/harlab/CM4_LCD_LT070ME05000 for schematics and
- * other documentation.
- */
+// Raspberry Pi JDI LT070ME05000 DTS
+// compile: dtc -@ -I dts -O dtb -o vc4-kms-dsi-lt070me05000.dtbo vc4-kms-dsi-lt070me05000-overlay.dts
 
 /dts-v1/;
 /plugin/;
 
 / {
-	compatible = "brcm,bcm2835";
+	compatible = "brcm,bcm2835";  
 
 	fragment@0 {
 		target = <&dsi1>;
@@ -65,5 +56,7 @@
 
 		dcdc-en = <&lt070me05000_pins>,"brcm,pins:4",
 			<&lt070me05000>,"dcdc-en-gpios:4";
+		
 	};
+
 };
