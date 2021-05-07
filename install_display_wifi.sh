@@ -11,4 +11,4 @@ sudo make -C /lib/modules/$(uname -r)/build M=drivers/staging/rtl8723bs/ modules
 sudo depmod &&
 sudo modprobe panel-jd9366 &&
 sudo modprobe panel-jdi-lt070me05000 &&
-sudo modprobe r8723bs &&
+sudo modprobe r8723bs
