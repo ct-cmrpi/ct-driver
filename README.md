@@ -92,7 +92,7 @@ gpio=24=op,dl
 dtoverlay=pwm-2chan,pin=40,func=4,pin2=41,func2=4
 
 #	MIPI DSI Display
-dtoverlay=vc4-kms-v3d
+dtoverlay=vc4-kms-v3d,audio=off
 #dtoverlay=vc4-kms-dsi-lt070me05000-v2
 dtoverlay=panel-jd9366
 gpio=12=op,dh
@@ -130,7 +130,7 @@ EndSection
 
 boot display rotation `sudo nano /boot/cmdline.txt`
 ```
-video=DSI-1:800x1280@60,rotate=90
+DISPLAY=:0 xrandr --output DSI-1 --rotate left
 ```
 
 ## Backup custom OS
