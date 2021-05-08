@@ -110,7 +110,7 @@ custom DSI panel that starts in 800x1280 mode
 rotated display to landscape (1280x800) with 
 
 ```
-xrandr --output DSI-1 --rotate left
+DISPLAY=:0 xrandr --output DSI-1 --rotate left
 ```
 
 touchscreen rotation
@@ -130,7 +130,7 @@ EndSection
 
 boot display rotation `sudo nano /boot/cmdline.txt`
 ```
-DISPLAY=:0 xrandr --output DSI-1 --rotate left
+video=DSI-1:800x1280@60,rotate=90
 ```
 
 ## Backup custom OS
