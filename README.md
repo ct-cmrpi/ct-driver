@@ -92,7 +92,7 @@ gpio=24=op,dl
 dtoverlay=pwm-2chan,pin=40,func=4,pin2=41,func2=4
 
 #	MIPI DSI Display
-dtoverlay=vc4-kms-v3d
+dtoverlay=vc4-kms-v3d,audio=off
 #dtoverlay=vc4-kms-dsi-lt070me05000-v2
 dtoverlay=panel-jd9366
 gpio=12=op,dh
@@ -110,7 +110,7 @@ custom DSI panel that starts in 800x1280 mode
 rotated display to landscape (1280x800) with 
 
 ```
-xrandr --output DSI-1 --rotate left
+DISPLAY=:0 xrandr --output DSI-1 --rotate left
 ```
 
 touchscreen rotation
