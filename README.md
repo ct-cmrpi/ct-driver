@@ -118,9 +118,9 @@ touchscreen rotation
 sudo nano /usr/share/X11/xorg.conf.d/40-libinput.conf
 ```
 #add option : 
-90° `Option "TransformationMatrix" "0 -1 1 1 0 0 0 0 1"` 
-180° `Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"` 
-270° `Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"` 
+90° = `Option "TransformationMatrix" "0 -1 1 1 0 0 0 0 1"`<br/>
+180° = `Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"`<br/>
+270°  =`Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"` 
 
 ```
 Section "InputClass"
