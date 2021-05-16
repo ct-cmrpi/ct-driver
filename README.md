@@ -80,7 +80,7 @@ and configure boot file in `sudo nano /boot/config.txt` as follows
 #	6=RST_LCD, 7=DCDC_EN, 8=PWR_USB2, 9=PWR_USB1, 10=FAN, 11=Relay, 12=LCD_EN, 
 #	13=BT_dis, 22=PWR_SFM, 23=PWR_EC25, 24=MUTE_AMP, 25=WL_DS, 26=WL_H_WAKE, 
 #	27=RST_EC25,30=BT_wake, 31=BT_H_wake, 42=RST_TP, 43=TP_INT_B
-gpio=7=op,dh 
+
 gpio=8=op,dh
 gpio=9=op,dh
 gpio=10=op,dl
@@ -117,7 +117,11 @@ touchscreen rotation
 ```
 sudo nano /usr/share/X11/xorg.conf.d/40-libinput.conf
 ```
-add option :
+add option : 
+   90° = Option "TransformationMatrix" "0 -1 1 1 0 0 0 0 1"
+   180° = Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"
+   270° = Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"
+
 ```
 Section "InputClass"
         Identifier "libinput touchscreen catchall"
